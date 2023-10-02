@@ -23,7 +23,7 @@ class Upload(models.Model):
             raise ValidationError("You cannot alter a processed upload")
         
     def trigger_file_processor(self):
-        process_upload(self)
+        process_upload.delay(self.pk)
     
     def save(self, *args, **kwargs) -> None:
         self.validate_already_processed()

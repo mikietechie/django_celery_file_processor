@@ -1,5 +1,6 @@
-from django.db.models import Model
+from django.apps import apps
 import celery
 
-def process_upload(upload: Model):
-    upload._meta.model.objects.filter(id=upload.pk).update(processed=True)
+@celery.shared_task()
+def process_upload(upload_id: int):
+    apps.get_model("app.Upload")._meta.model.objects.filter(id=upload.pk).update(processed=True)

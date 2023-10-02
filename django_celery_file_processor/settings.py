@@ -143,3 +143,12 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CELERY
+
+# CELERY_BROKER_URL = 'memory://localhost/'
+# BROKER_BACKEND = 'memory'
+CELERY_BROKER_URL = 'db+sqlite:///' + BASE_DIR.joinpath("celery.db").as_uri()
+BROKER_BACKEND = 'db+sqlite:///' + BASE_DIR.joinpath("celery_results.db").as_uri()
+CELERY_TASK_ALWAYS_EAGER = True
+CELERY_TASK_EAGER_PROPAGATES = True
