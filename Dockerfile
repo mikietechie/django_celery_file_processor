@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.11
 
 # set a directory for the app
 WORKDIR /usr/src/django_celery_file_processor
