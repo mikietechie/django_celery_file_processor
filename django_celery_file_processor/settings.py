@@ -145,10 +145,7 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CELERY
-
-# CELERY_BROKER_URL = 'memory://localhost/'
-# BROKER_BACKEND = 'memory'
-CELERY_BROKER_URL = 'db+sqlite:///' + BASE_DIR.joinpath("celery.db").as_uri()
-BROKER_BACKEND = 'db+sqlite:///' + BASE_DIR.joinpath("celery_results.db").as_uri()
+CELERY_BROKER_URL = env.get("CELERY_BROKER_URL", "redis://localhost:6379")
+CELERY_RESULT_BACKEND = env.get("CELERY_RESULT_BACKEND", "redis://localhost:6379")
 CELERY_TASK_ALWAYS_EAGER = True
 CELERY_TASK_EAGER_PROPAGATES = True
