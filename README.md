@@ -1,3 +1,17 @@
+# Django, DRF Celery File Processor API
+An interview assignment.
+
+## Techstack
+1. Linux
+2. Python
+3. Django
+4. Django Rest Framework
+5. Redis
+6. Docker
+7. Celery
+8. Git
+
+## Instructions
 Test task: Uploading and processing files
 Goal:
 Develop a Django REST API that allows you to upload files to the server and then asynchronously process them using Celery.
